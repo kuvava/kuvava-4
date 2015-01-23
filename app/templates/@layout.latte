@@ -23,13 +23,29 @@
 
 <div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
 
-<menu id="menu"><div id="jst1">
-<a><li>menu 1</li></a>
-<a><li>menu 2</li></a>
-<a><li>menu 3</li></a>
-<a><li>menu 4</li></a>
-<a><li>menu 5</li></a>
+<div id="menu"><div id="jst1">
+<menu id="m1"><div>
+<li><a href="/"><div>Kontakt</div></a></li>
+<li><a href="/"><div>O nás</div></a></li>
+<li><a href="/"><div>Ceník</div></a></li>
+<li><a href="/"><div>Novinky</div></a></li>
+<li><a href="/"><div>Kalendář akcí</div></a></li>
 </div></menu>
+<menu id="m2"><div>
+<li><a href="/"><div>Články</div></a></li>
+<li><a href="/"><div>Nahrávky</div></a></li>
+<li><a href="/"><div>Diskuze</div></a></li>
+<li><a href="/"><div>Poradenství</div></a></li>
+<li><a href="/"><div>Léčitelství</div></a></li>
+<li><a href="/"><div>Obrazy</div></a></li>
+<li><a href="/"><div>Semináře</div></a></li>
+</div></menu>
+<menu id="m3"><div>
+<li><a href="/"><div>Odkazy</div></a></li>
+<li><a href="/"><div>Napište nám</div></a></li>
+<li><a href="/"><div>Zavoláme Vám</div></a></li>
+</div></menu>
+</div></div>
 
 <div id="text"><div id="jst2">
 {include content}

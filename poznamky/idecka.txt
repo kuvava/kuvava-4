@@ -1,5 +1,8 @@
 #all		podekvivalent <body>
 #jst1		javascript-test-1 (neovlivňovaná výška #menu)
 #jst2		javascript-test-2 (neovlivňovaná výška #text)
+#m1			horní menu
+#m2			prostřední menu
+#m3			spodní menu
 #menu		část s menu vlevo
 #text		hlavní obsahová část
