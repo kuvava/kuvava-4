@@ -1,0 +1,3 @@
+#all		podekvivalent <body>
+#menu		část s menu vlevo
+#text		hlavní obsahová část

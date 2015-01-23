@@ -1,9 +1,50 @@
+html{
+font-size: 16px;}
+#menu{
+font-size: 1.2em;
+}
 body{
-font-size: 14px;
+font-size: 1rem;
 line-height: 1.6;
-font-family: sans-serif;
+font-family: sans-serif;}
+#menu,#text{
+float: left;}
+#text{
+float: right;
+}
+#menu{
+width: 25%;}
+#text{
+width: 75%;}
+body{
+margin: 0;}
+h1,#menu{
+margin-top: 0;}
+#menu{
+margin-bottom: 0;}
+#all{
+margin: 0.5em; margin: 0.5rem;}
+#menu{
+padding: 0;}
+#menu div{
+padding: 0.5em; padding: 0.5rem;}
+#text div{
+padding: 1.5em; padding: 1.5rem;}
+#menu li{
+padding-bottom: 0.2em;padding-bottom: 0.2rem;
+padding-top: 0.2em;padding-top: 0.2rem;}
+body{
 color: #111;
-background: #ccc;
+background-color: #ccc;}
+#menu{
+color: #eee;
+background-color: #111}
+#text{
+background-color: #fff;}
+#menu{
+list-style: none;}
+#menu{
+font-weight: bold;}
 /* Nette */
 div.flash{
 color: black;

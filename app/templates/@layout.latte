@@ -6,27 +6,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
+<meta charset="utf-8">
 
-	<title>{ifset #title}{include title|striptags} | {/ifset}kuvava.cz</title>
+<title>{ifset #title}{include title|striptags} | {/ifset}kuvava.cz</title>
 
-	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css">
-	<link rel="stylesheet" media="print" href="{$basePath}/css/print.css">
-	<link rel="shortcut icon" href="{$basePath}/favicon4.ico">
-	{block head}{/block}
+<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css">
+<link rel="stylesheet" media="print" href="{$basePath}/css/print.css">
+<link rel="shortcut icon" href="{$basePath}/favicon4.ico">
+{block head}{/block}
 </head>
 
+
 <body>
-	<script> document.documentElement.className+=' js' </script>
+<div id="all">
+<script> document.documentElement.className+=' js' </script>
 
-	<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
+<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
 
-	{include content}
+<menu id="menu"><div>
+<a><li>menu 1</li></a>
+<a><li>menu 2</li></a>
+<a><li>menu 3</li></a>
+<a><li>menu 4</li></a>
+<a><li>menu 5</li></a>
+</div></menu>
 
-	{block scripts}
-	<script src="{$basePath}/js/jquery.js"></script>
-	<script src="{$basePath}/js/netteForms.js"></script>
-	<script src="{$basePath}/js/main.js"></script>
-	{/block}
+<div id="text"><div>
+{include content}
+</div></div>
+
+{block scripts}
+<script src="{$basePath}/js/jquery.js"></script>
+<script src="{$basePath}/js/netteForms.js"></script>
+<script src="{$basePath}/js/main.js"></script>
+{/block}
+
+</div>
 </body>
 </html>
