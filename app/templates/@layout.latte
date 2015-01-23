@@ -16,14 +16,14 @@
 {block head}{/block}
 </head>
 
-
-<body>
+<script> function ah1(){ var e1=document.getElementById('menu');var e2=document.getElementById('text');var h1=document.getElementById('jst1').offsetHeight;var h2=document.getElementById('jst2').offsetHeight;var n1=Math.max(h1,h2);if(n1>0){ n1+='px';}else{ n1='auto';}e1.style.height=n1;e2.style.height=n1;} </script>
+<body onresize="ah1();">
 <div id="all">
 <script> document.documentElement.className+=' js' </script>
 
 <div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
 
-<menu id="menu"><div>
+<menu id="menu"><div id="jst1">
 <a><li>menu 1</li></a>
 <a><li>menu 2</li></a>
 <a><li>menu 3</li></a>
@@ -31,9 +31,9 @@
 <a><li>menu 5</li></a>
 </div></menu>
 
-<div id="text"><div>
+<div id="text"><div id="jst2">
 {include content}
-</div></div>
+</div></div><script>ah1();</script>
 
 {block scripts}
 <script src="{$basePath}/js/jquery.js"></script>

@@ -1,0 +1,1 @@
+ah1		nastaví aktuální výšku (shodnou pro větší z #menu nebo #text)
