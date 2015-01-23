@@ -1,0 +1,2 @@
+act		active (link in menu, ...)
+p1		parent1 (rodič .act)
