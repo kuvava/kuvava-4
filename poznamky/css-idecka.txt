@@ -1,8 +1,10 @@
 #all		podekvivalent <body>
+#foot		patička
 #jst1		javascript-test-1 (neovlivňovaná výška #menu)
 #jst2		javascript-test-2 (neovlivňovaná výška #text)
 #m1			horní menu
 #m2			prostřední menu
 #m3			spodní menu
 #menu		část s menu vlevo
+#sign		vizitka za hlavní částí
 #text		hlavní obsahová část
