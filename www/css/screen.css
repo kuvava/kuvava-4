@@ -6,6 +6,8 @@ line-height: 1.6;
 font-family: sans-serif;}
 h1,h2,h3{
 line-height: 1.3;}
+menu{
+line-height: 1.1;}
 h1{
 font-size: 1.8em;}
 menu{
@@ -40,11 +42,11 @@ margin: 0.9em auto;margin: 0.9rem auto;}
 menu{
 padding: 0;}
 menu div{
-padding: 0.25em 0; padding: 0.25rem 0;}
+padding: 0.4em 0; padding: 0.5rem 0;}
 #text div{
 padding: 1.2em 1.5em; padding: 1.2rem 1.5rem;}
 menu li div{
-padding: 0.25em 0.5em;padding: 0.3rem 0.5rem;}
+padding: 0.4em 0.5em;padding: 0.5rem 0.5rem;}
 body,.act,.act:hover{
 color: #000;}
 body{
