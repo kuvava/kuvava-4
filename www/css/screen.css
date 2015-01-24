@@ -47,11 +47,13 @@ padding: 0.4em 0; padding: 0.5rem 0;}
 padding: 1.2em 1.5em; padding: 1.2rem 1.5rem;}
 menu li div{
 padding: 0.4em 0.5em;padding: 0.5rem 0.5rem;}
-body,.act,.act:hover{
+menu menu menu li div{
+padding-left: 2em;padding-left: 2rem;}
+body,.act,.act:hover,/*menu menu menu li div*/{
 color: #000;}
-body{
+body,/*menu menu menu li div*/{
 background-color: #ccc;}
-#menu, menu a{
+#menu,menu a{
 color: #fff;}
 #menu, menu a, menu li div:hover{
 background-color: #000}
@@ -61,10 +63,17 @@ background-color: #fff;}
 background-color: #2e002f;}
 #m2{
 background-color: #162d00;}
+#m2 menu menu li div{
+background-color: #285100;}
+a{
+color:#004482}
 h1{
 text-align: center;}
 menu{
 list-style: none;}
+menu menu menu{
+list-style-type: disc;
+}
 menu{
 font-weight: bold;}
 menu menu{
@@ -75,6 +84,8 @@ menu menu menu{
 font-style: normal;}
 menu a{
 text-decoration: none;}
+/*menu menu menu li div{
+text-decoration: underline;}*/
 /* Nette */
 div.flash{
 color: black;
