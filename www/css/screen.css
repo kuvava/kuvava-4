@@ -41,7 +41,7 @@ h3{
 margin:1em auto;margin:1rem auto;}
 p{
 margin:0.9em auto;margin:0.9rem auto;}
-#add{
+#madd{
 margin-top:2.5em;margin-top:2.5rem;}
 menu,#text #add div{
 padding:0;}
@@ -49,26 +49,28 @@ menu div{
 padding:0.4em 0;padding:0.5rem 0;}
 #text div{
 padding:1.2em 4%;padding:1.2rem 4%;}
-menu li div,#sign div{
+menu li div,#sign div,#text #madd li div{
 padding:0.5em;padding:0.5rem;}
 menu menu li div{
 padding-left:2em;padding-left:2rem;}
 body,.act,.act:hover{
 color:#000;}
-body{
-background-color:#ccc;}
 #menu,menu a,#sign,#sign a{
 color:#fff;}
 #menu,menu a,menu li div:hover,#sign{
 background-color:#000}
 #text,.act,.act:hover{
 background-color:#fff;}
+#add{
+background-color:#e7e7e7;}
+body{
+background-color:#ccc;}
+#madd{
+background-color:#333333}
 #m1,#m3{
 background-color:#2e002f;}
 #m2{
 background-color:#162d00;}
-#add{
-background-color:#e7e7e7;}
 a{
 color:#004482}
 h1,#foot{
