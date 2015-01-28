@@ -1,3 +1,2 @@
 act		active (link in menu, ...)
 c		clearing of floating
-p1		parent1 (rodič .act)
