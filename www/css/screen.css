@@ -23,8 +23,12 @@ float:right;
 }
 .c{
 clear:both;}
+#madd li{
+display:inline-block;}
 #menu{
 width:25%;}
+#madd li{
+width:33.3%}
 #text{
 width:75%;}
 body{
@@ -45,6 +49,8 @@ margin:0.9em auto;margin:0.9rem auto;}
 margin-top:2.5em;margin-top:2.5rem;}
 menu,#text #add div{
 padding:0;}
+#text #add{
+padding-top:1px}
 menu div{
 padding:0.4em 0;padding:0.5rem 0;}
 #text div{
@@ -61,7 +67,7 @@ color:#fff;}
 background-color:#000}
 #text,.act,.act:hover{
 background-color:#fff;}
-#add{
+#add,#madd .act{
 background-color:#e7e7e7;}
 body{
 background-color:#ccc;}
@@ -73,7 +79,7 @@ background-color:#2e002f;}
 background-color:#162d00;}
 a{
 color:#004482}
-h1,#foot{
+h1,#foot,#madd li{
 text-align:center;}
 #sign{
 text-align:right;}
