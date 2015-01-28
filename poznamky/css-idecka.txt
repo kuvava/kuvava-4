@@ -1,3 +1,5 @@
+#add		druhá část v rámci hlavní obsahové části
+#add1		první volba z menu pro část add
 #all		podekvivalent <body>
 #foot		patička
 #jst1		javascript-test-1 (neovlivňovaná výška #menu)
@@ -5,6 +7,7 @@
 #m1			horní menu
 #m2			prostřední menu
 #m3			spodní menu
+#madd		menu pro část add
 #menu		část s menu vlevo
 #sign		vizitka za hlavní částí
 #text		hlavní obsahová část
