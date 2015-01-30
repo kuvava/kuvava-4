@@ -12,7 +12,7 @@ h1{
 font-size:1.8em;font-size:1.8rem;}
 h2{
 font-size:1.5em;font-size:1.5rem}
-h3{
+h3,.add h2{
 font-size:1.3em;font-size:1.3rem;}
 #foot{
 font-size:0.9em;font-size:0.9rem;}
@@ -49,9 +49,9 @@ p{
 margin:0.9em auto;margin:0.9rem auto;}
 #madd{
 margin-top:2.5em;margin-top:2.5rem;}
-menu,#text #add div{
+menu{
 padding:0;}
-#text #add{
+#text .add{
 padding-top:1px}
 menu div{
 padding:0.4em 0;padding:0.5rem 0;}
@@ -69,7 +69,7 @@ color:#fff;}
 background-color:#000}
 #text,.act,.act:hover{
 background-color:#fff;}
-#add,#madd .act{
+.add,#madd .act{
 background-color:#e9e9e9;}
 body{
 background-color:#ccc;}
