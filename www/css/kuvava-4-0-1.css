@@ -25,6 +25,8 @@ float:right;
 clear:both;}
 #madd li{
 display:inline-block;}
+body{
+min-width:555px;}
 #menu{
 width:25%;}
 #madd li{
