@@ -16,7 +16,7 @@
 <link rel="shortcut icon" href="{$basePath}/favicon4.ico">
 <meta name="description" content="DOPLNIT">
 <meta property="og:title" content="DOPLNIT">
-{if "DOPLNIT"}<meta property="og:type" content="article">{/if}
+{if $clanek}<meta property="og:type" content="article">{/if}
 <meta property="og:image" content="http://www.kuvava.cz/images/loga/kuvava-logo-4-xl.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1972">
@@ -76,18 +76,19 @@
 <div id="text"><div id="jst2">
 {include content}
 	<menu id="madd">
-	<li><a href="/"><div id="madd1">Sdílení na sítích</div></a></li><li><a href="/"><div id="madd2">Kam dál?</div></a></li><li><a href="/"><div id="madd3">Diskuze s autorem</div></a></li>
+	<li>{if $sdileni}<a href="#add1"><div id="madd1">Sdílení na sítích</div></a>{/if}</li><li>{ifset #kamDal}<a href="#add2"><div id="madd2">Kam dál?</div></a>{/ifset}</li><li>{if $diskuze}<a href="#add3"><div id="madd3">Diskuze s autorem</div></a>{/if}</li>
 	</menu>
-	<div id="add1" class="add jshidden">
+	{if $sdileni}<div id="add1" class="add jshidden">
 	<h2>Líbí se Vám tento příspěvek?<br>Sdílejte jej prosím:</h2>
 	<p><a href="http://www.facebook.com/sharer.php?u=<?php echo urlencode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']); ?>" target="_blank" title="sdílejte tento příspěvek na facebooku"><img src="/images/ikonky/facebook-sdileni.png" alt="ikonka facebooku" height="32" width="32" border="0"></a>&nbsp;&nbsp;<a href="https://plus.google.com/share?url=<?php echo urlencode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']); ?>" target="_blank" title="sdílejte tento příspěvek na google plus"><img src="/images/ikonky/gplus-sdileni.png" alt="ikonka google plus" height="32" width="32" border="0"></a>&nbsp;&nbsp;<a href="http://twitter.com/share?url=<?php echo urlencode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']); ?>&text=<?php echo urlencode('DOPLNIT'); ?>" target="_blank" title="sdílejte tento příspěvek na twitteru"><img src="/images/ikonky/twitter-sdileni.png" alt="ikonka twitteru" height="32" width="32" border="0"></a></p>
-	</div>
-	<div id="add2" class="add jshidden">
-	{include content2}
-	</div>
-	<div id="add3" class="add jshidden">
+	</div>{/if}
+	{ifset #kamDal}<div id="add2" class="add jshidden">
+	<h2>Dále by Vás mohlo zajímat:</h2>
+	{include kamDal}
+	</div>{/ifset}
+	{if $diskuze}<div id="add3" class="add jshidden">
 	<p>Ahoj - blebleblé</p>
-	</div>
+	</div>{/if}
 </div></div><script>ah1();</script>
 
 <div class="c"></div>
