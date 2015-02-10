@@ -4,26 +4,73 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6cfba70340754f9d70db945f5f6090ae",
+    "hash": "aaf620a1e82041d09dacc56d86859136",
     "packages": [
         {
             "name": "dg/adminer-custom",
-            "version": "v1.5.0",
+            "version": "v1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dg/adminer-custom.git",
-                "reference": "9365952e11b2b706be94c5000bf032027557a45b"
+                "reference": "f1b449b7076d49711fdb41382e5bd858f09855d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dg/adminer-custom/zipball/9365952e11b2b706be94c5000bf032027557a45b",
-                "reference": "9365952e11b2b706be94c5000bf032027557a45b",
+                "url": "https://api.github.com/repos/dg/adminer-custom/zipball/f1b449b7076d49711fdb41382e5bd858f09855d0",
+                "reference": "f1b449b7076d49711fdb41382e5bd858f09855d0",
                 "shasum": ""
             },
             "type": "project",
             "notification-url": "https://packagist.org/downloads/",
             "description": "Customization for the best database management tool written in PHP, Adminer",
-            "time": "2014-08-05 16:59:07"
+            "time": "2015-02-07 20:26:30"
+        },
+        {
+            "name": "jandrabek/nette-mailpanel",
+            "version": "3.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/repli2dev/nette-mailpanel.git",
+                "reference": "f760a35cad1023db4ed4c9a3fe0cdb5775d29f89"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/repli2dev/nette-mailpanel/zipball/f760a35cad1023db4ed4c9a3fe0cdb5775d29f89",
+                "reference": "f760a35cad1023db4ed4c9a3fe0cdb5775d29f89",
+                "shasum": ""
+            },
+            "require": {
+                "nette/nette": "2.0.* | 2.1.* | 2.2.* | 2.3.*",
+                "php": ">=5.3.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "JanDrabek\\MailPanel\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Jan Drábek",
+                    "homepage": "http://www.jandrabek.cz"
+                }
+            ],
+            "description": "MailPanel is extension for Nette Framework which captures sent e-mails in development mode and shows them from debugger bar.",
+            "homepage": "http://addons.nette.org/cs/mailpanel",
+            "keywords": [
+                "debugging",
+                "framework",
+                "mail",
+                "mail panel",
+                "mailing",
+                "mailpanel",
+                "sessionmailer"
+            ],
+            "time": "2015-02-02 12:12:35"
         },
         {
             "name": "latte/latte",
@@ -1161,16 +1208,16 @@
     "packages-dev": [
         {
             "name": "nette/tester",
-            "version": "v1.3.0",
+            "version": "v1.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/tester.git",
-                "reference": "73e9511cb0bd03efdba398c00e91fac8b22edde7"
+                "reference": "2ce1cd9a6d7012ba059efa08613d5cd6e50c6560"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/tester/zipball/73e9511cb0bd03efdba398c00e91fac8b22edde7",
-                "reference": "73e9511cb0bd03efdba398c00e91fac8b22edde7",
+                "url": "https://api.github.com/repos/nette/tester/zipball/2ce1cd9a6d7012ba059efa08613d5cd6e50c6560",
+                "reference": "2ce1cd9a6d7012ba059efa08613d5cd6e50c6560",
                 "shasum": ""
             },
             "require": {
@@ -1213,21 +1260,16 @@
                 "testing",
                 "unit"
             ],
-            "time": "2014-09-27 10:42:19"
+            "time": "2015-02-08 04:13:28"
         }
     ],
-    "aliases": [
-
-    ],
+    "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [
-
-    ],
+    "stability-flags": [],
     "prefer-stable": false,
+    "prefer-lowest": false,
     "platform": {
         "php": ">= 5.3.7"
     },
-    "platform-dev": [
-
-    ]
+    "platform-dev": []
 }
