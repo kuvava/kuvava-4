@@ -20,7 +20,12 @@ nette:
 	session:
 		expiration: 14 days
 
+	debugger:
+		bar:
+			- JanDrabek\MailPanel\MailPanel
+
 
 services:
 	- App\Model\UserManager
 	router: App\RouterFactory::createRouter
+	nette.mailer: JanDrabek\MailPanel\SessionMailer

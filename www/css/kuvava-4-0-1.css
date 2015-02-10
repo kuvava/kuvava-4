@@ -33,7 +33,7 @@ width:25%;}
 width:33.33333333333%}
 #text{
 width:75%;}
-body{
+body,dl{
 margin:0;}
 h1,menu{
 margin-top:0;}
@@ -49,6 +49,12 @@ p{
 margin:0.9em auto;margin:0.9rem auto;}
 #madd{
 margin-top:2.5em;margin-top:2.5rem;}
+.but{
+margin-top:0.5em;margin-top:0.5rem;}
+form div.des,dl{
+margin-top:0.2em;margin-bottom:0.2rem;}
+form div{
+margin-bottom:0.3em;margin-bottom:0.3rem;}
 menu, #text form div{
 padding:0;}
 #text .add{
@@ -59,6 +65,8 @@ padding:0.4em 0;padding:0.5rem 0;}
 padding:1.2em 4%;padding:1.2rem 4%;}
 menu li div,#sign div,#text #madd li div,form,.but{
 padding:0.5em;padding:0.5rem;}
+input[type=text],input[type=email]{
+padding:0.3em;padding:0.3rem;}
 menu menu li div{
 padding-left:2em;padding-left:2rem;}
 body,.act,.act:hover{
@@ -86,7 +94,7 @@ color:#004482}
 .but{
 background-color:#004482}
 form{
-background-color: #fedbff;}
+background-color: #fee3ff;}
 .but{
 border-width:0px;}
 h1,#foot,#madd li{
