@@ -29,6 +29,7 @@ class HomepagePresenter extends BasePresenter
 			->setDefaultValue('@');
 		$form->addCheckbox('novinky', 'Smíme Vám zasílat novinky emailem?')
 			->setDefaultValue(FALSE);
+		$form->addAntispam();
 		$form->addText('telefon', 'Váš telefon:', 30, 30);
 		$form->addCheckbox('zavolame_vam', 'Smíme Vám bezplatně zavolat pro domluvu?')
 			->setDefaultValue(FALSE);
