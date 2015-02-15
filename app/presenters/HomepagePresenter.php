@@ -14,8 +14,12 @@ use Nette,
 class HomepagePresenter extends BasePresenter
 {
 
-	/** @var Nette\Mail\IMailer @inject */
+	/** @var Nette\Mail\IMailer */
 	private $mailer;
+	public function injectMailer(Nette\Mail\IMailer $mailer)
+	{
+		$this->mailer = $mailer;
+	}
 
 	public function createComponentNapisteNamForm()
 	{
@@ -43,12 +47,7 @@ class HomepagePresenter extends BasePresenter
 			->setOption('description', Html::el('div class=des')
 					->setHtml('<small>(Takto obdržené informace nezveřejňujeme.)<br>(Údaje s * jsou povinné.)</small>')
 					);
-		
-		$renderer = $form->getRenderer();
-		$renderer->wrappers['controls']['container'] = 'dl';
-		$renderer->wrappers['pair']['container'] = 'div';
-		$renderer->wrappers['label']['container'] = 'dt';
-		$renderer->wrappers['control']['container'] = 'dd';
+		$this->setFormRenderer($form);
 		
 		$form->onSuccess[] = array($this, 'napisteNamFormSubmitted');
 		return $form;
@@ -56,47 +55,48 @@ class HomepagePresenter extends BasePresenter
 	
 	public function napisteNamFormSubmitted(Nette\Application\UI\Form $form, $values)
 	{
-		$novinky = $values -> novinky ? 'ano' : 'ne';
+		$novinky = $values->novinky ? 'ano' : 'ne';
+		$zavolame_vam = $values->zavolame_vam ? 'ano' : 'ne';
+		$kopie = $values->kopie ? 'ano' : 'ne';
 		$httpRequest = $this->context->getService('httpRequest');
 		$now = new Nette\DateTime;
-		$ip = inet_pton($httpRequest -> getRemoteAddress());
+		$ip = inet_pton($httpRequest->getRemoteAddress());
 
 		$data = array (
-			'jmeno' => $values -> jmeno,
-			'telefon' => $values -> telefon,
-			'email' => $values -> email,
+			'jmeno' => $values->jmeno,
+			'telefon' => $values->telefon,
+			'zavolame_vam' => $zavolame_vam,
+			'email' => $values->email,
 			'novinky' => $novinky,
-			'text' => $values -> text,
+			'text' => $values->text,
+			'kopie' => $kopie,
 			'dv' => $now,
 			'ov' => $now,
 			'ip' => $ip
 			);
 			
-		$this -> zapisovac -> zapis('vzkaz', $data);
+		$this->database->table('napiste_nam')->insert($data);
 
-		$template = $this->createTemplate();
-		$template->setFile(__DIR__ . '/../templates/moje-emaily/napiste-nam.latte');
-		$template->kopie = FALSE;
-		$template->values = $values;
-		$template->novinky = $novinky;
+		$latte = new \Latte\Engine;
 
 		$mail = new Nette\Mail\Message;
-		$mail->setFrom('admin@gastrohradec.cz')
-			->addTo('gastrohradec@seznam.cz')
+		$data['komu'] = 'nam';
+		$mail->setFrom($data['email'])
 			->addTo('urbanovi@kuvava.cz')
-			->setHtmlBody($template);
+			->setHtmlBody($latte->renderToString(__DIR__ . '/../templates/MojeEmaily/NapisteNam.latte', $data));
 
-		$mail2 = new Nette\Mail\Message;
-		$template->kopie = TRUE;
-		$mail2->setFrom('admin@gastrohradec.cz')
-			->addTo($values -> email)
-			->setHtmlBody($template);
+		if ($data['kopie'] === 'ano'){
+			$mail2 = new Nette\Mail\Message;
+			$data['komu'] = 'jim';
+			$mail2->setFrom('urbanovi@kuvava.cz')
+				->addTo($data['email'])
+				->setHtmlBody($latte->renderToString(__DIR__ . '/../templates/MojeEmaily/NapisteNam.latte', $data));
+		}
 
-		$mailer = new Nette\Mail\SendmailMailer;
-		$mailer->send($mail);
-		$mailer->send($mail2);
+		$this->mailer->send($mail);
+		if ($data['kopie'] === 'ano') $this->mailer->send($mail2);
 
-		$this->flashMessage('Váš vzkaz byl úspěšně odeslán na náš email: gastrohradec@seznam.cz  <br>Pro kontrolu jsme kopii odeslali i na Váš email: '. $values -> email, 'flash-green');
+		$this->flashMessage('Váš vzkaz byl úspěšně odeslán na náš email: urbanovi@kuvava.cz '. ($data['kopie'] === 'ano' ? ('<br>Pro kontrolu jsme kopii odeslali i na Váš email: '. $data['email']):''));
 		$this->redirect('this');
 	}
 

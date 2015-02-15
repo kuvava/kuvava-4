@@ -14,6 +14,8 @@
 	RewriteRule /\.|^\. - [F]
 
 	# front controller
+	RewriteCond %{REQUEST_URI} adminer/
+	RewriteRule (.*) adminer/index.php [L]
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteCond %{REQUEST_FILENAME} !-d
 	RewriteRule !\.(pdf|js|ico|gif|jpg|png|css|rar|zip|tar\.gz|map)$ index.php [L]

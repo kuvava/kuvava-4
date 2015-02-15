@@ -71,7 +71,7 @@ menu menu li div{
 padding-left:2em;padding-left:2rem;}
 body,.act,.act:hover{
 color:#000;}
-#menu,menu a,#sign,#sign a,.but{
+#menu,menu a,#sign,#sign a,.but,div.flash{
 color:#fff;}
 #menu,menu a,menu li div:hover,#sign{
 background-color:#000}
@@ -87,17 +87,19 @@ background-color:#ccc;}
 background-color:#333333}
 #m1,#m3{
 background-color:#2e002f;}
-#m2{
+#m2,div.flash{
 background-color:#162d00;}
 a{
-color:#004482}
+color:#004482;}
 .but{
-background-color:#004482}
+background-color:#004482;}
+.but:hover{
+background-color:#003464;}
 form{
 background-color: #fee3ff;}
 .but{
 border-width:0px;}
-h1,#foot,#madd li{
+h1,#foot,#madd li,div.flash{
 text-align:center;}
 #sign{
 text-align:right;}
@@ -117,19 +119,12 @@ text-decoration:none;}
 cursor: pointer;}
 /* Nette */
 div.flash{
-color:black;
-background:#FFF9D7;
 border:1px solid #E2C822;
 padding:1em;
 margin:1em 0;}
 a[href^="#error:"]{
 background:red;
 color:white;}
-form th,form td{
-vertical-align:top;
-font-weight:normal;}
-form th{
-text-align:right;}
 form .required label{
 font-weight:bold;}
 form .error{

@@ -30,7 +30,7 @@
 <div id="all">
 <script> document.documentElement.className+=' js' </script>
 
-<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
+<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message|noescape}</div>
 
 <div id="menu"><div id="jst1">
 <menu id="m1"><div>
@@ -58,7 +58,7 @@
 <div id="text"><div id="jst2">
 {include content}
 	<menu id="madd">
-	<li>{if $sdileni}<a href="#add1"><div id="madd1">Sdílení</div></a>{/if}</li><li>{ifset #kamDal}<a href="#add2"><div id="madd2">Kam dál?</div></a>{/ifset}</li><li>{if $diskuze}<a href="#add3"><div id="madd3">Diskuze</div></a>{/if}</li>
+	<li>{if $sdileni}<a href="#add1"><div id="madd1">Sdílet</div></a>{/if}</li><li>{ifset #kamDal}<a href="#add2"><div id="madd2">Kam dál?</div></a>{/ifset}</li><li>{if $diskuze}<a href="#add3"><div id="madd3">Diskuze</div></a>{/if}</li>
 	</menu>
 	{if $sdileni}<div id="add1" class="add jshidden">
 	<h2>Líbí se Vám tento příspěvek?<br>Sdílejte jej prosím:</h2>
