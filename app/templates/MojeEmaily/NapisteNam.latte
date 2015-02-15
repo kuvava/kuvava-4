@@ -1,0 +1,24 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>
+	{if $komu === 'jim'}Kopie vzkazu odeslaného z www.kuvava.cz{else}Vzkaz odeslaný z www.kuvava.cz{/if}
+	</title>
+</head>
+<body>
+
+Na <a href="http://www.kuvava.cz.cz">www.kuvava.cz</a> byl vyplněn a odeslán následující vzkaz pro Janu a Tomáše Urbanovi:<br><br>
+
+<i>jméno:</i> <b>{$jmeno}</b><br>
+<i>email:</i> <b>{$email}</b><br>
+<i>Přejete si odběr novinek?</i> <b>{$novinky}</b><br>
+<i>telefon:</i> <b>{$telefon}</b><br>
+<i>Jana Urbanová nebo Tomáš Urban Vám zavolá bezplatně pro domluvu?</i> <b>{$zavolame_vam}</b><br>
+<br>
+<i>text:</i><br>
+{$text|escape|nl2br|noescape}<br>
+<br>
+<i>Přejete si obdržet kopii zprávy i na Vámi vyplněný email?</i> <b>{$kopie}</b><br>
+
+</body>
+</html>
