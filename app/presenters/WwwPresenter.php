@@ -96,7 +96,7 @@ class WwwPresenter extends BasePresenter
 		$this->mailer->send($mail);
 		if ($data['kopie'] === 'ano') $this->mailer->send($mail2);
 
-		$this->flashMessage('Váš vzkaz byl úspěšně odeslán na náš email: urbanovi@kuvava.cz '. ($data['kopie'] === 'ano' ? ('<br>Pro kontrolu jsme kopii odeslali i na Váš email: '. $data['email']):''));
+		$this->flashMessage('Váš vzkaz byl úspěšně odeslán na náš email: urbanovi&#64;<!-- -->kuvava.cz '. ($data['kopie'] === 'ano' ? ('<br>Pro kontrolu jsme kopii odeslali i na Váš email: '. $data['email']):''));
 		$this->redirect('this');
 	}
 
