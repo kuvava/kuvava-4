@@ -1,8 +1,22 @@
-{block content}
-<h1 n:block=title>Page Not Found</h1>
+{var $robots = 'noindex'}
 
-<p>The page you requested could not be found. It is possible that the address is
-incorrect, or that the page no longer exists. Please use a search engine to find
-what you are looking for.</p>
+{block content}
+<h1>{block title}Stránka nenalezena{/block}</h1>
+
+<h2>Pravděpodobně nastala jedna z&nbsp;těchto situací:</h2>
+<ul>
+	<li>do prohlížeče byla zadána špatná URL adresa</li>
+	<li>přicházíte z&nbsp;vyhledávače, který má v databázi již neexistující stránku</li>
+	<li>máme na webu špatný odkaz</li>
+</ul>
+
+<h2>Kam dál?</h2>
+<ul>
+	<li>Můžete začít na naší (klikněte na odkaz:) <a href="http://www.kuvava.cz/">úvodní stránce</a>.</li>
+	<li>E-mailová adresa správce webu je: urbanovi&#64;<!-- -->kuvava.cz</li>
+	<li>Nebo si vyberte jakoukoliv položku v menu.</li>
+</ul>
+
+<h2>Děkujeme za pochopení.</h2>
 
 <p><small>error 404</small></p>
