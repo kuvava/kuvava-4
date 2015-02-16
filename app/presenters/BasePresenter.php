@@ -64,9 +64,13 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 		$form->addText('prezdivka', 'Přezdívka:', 30, 30);
 		$form->addText('web', 'Vaše webové stránky:', 30, 50)
 			->setOption('description','(zobrazí se vedle přezdívky)');
-		$form->addTextArea('text', 'Text*:', 50, 20)
+		$form->addTextArea('text', 'Text*:', 50, 10)
 			->setAttribute('maxlength', '2000')
 			->addRule(Form::FILLED, 'Vyplňte prosím políčko "text".');
+		$form->addRadioList('pohlavi', 'Pohlaví:', array('m' => 'muž','h' => 'tajné','f' => 'žena'))
+			->getSeparatorPrototype()->addClass('flr')->setName('span');
+		$form->addSelect('vek', 'Věk:', array(-1 => 'tajné', 0 => '0 až 5 let', 5 => '5 až 10 let', 10 => '10 až 15 let', 15 => '15 až 20 let', 20 => '20 až 25 let', 25 => '25 až 30 let', 30 => '30 až 35 let', 35 => '35 až 40 let', 40 => '40 až 50 let', 50 => '50 až 60 let', 60 => '60 až 70 let', 70 => '70 až 80 let', 80 => '80 nebo více let'))
+			->setPrompt('vyberte rozmezí');
 		$form->addText('email', 'Email*:', 30, 70)
 			->setType('email')
 			->addRule(Form::FILLED, 'Zadejte prosím Váš e-mail.')

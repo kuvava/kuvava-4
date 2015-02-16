@@ -2,3 +2,4 @@ act		active (link in menu, ...)
 but		looks like a button
 c		clearing of floating
 des		description (in forms)
+flr		radiobutton in one line in forms

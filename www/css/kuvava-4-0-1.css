@@ -23,7 +23,7 @@ float:right;
 }
 .c{
 clear:both;}
-#madd li{
+#madd li,span.flr{
 display:inline-block;}
 body{
 min-width:555px;}
@@ -31,6 +31,8 @@ textarea{
 width:90%;}
 #menu{
 width:25%;}
+span.flr{
+width:20%;}
 #madd li{
 width:33.33333333333%}
 #text{

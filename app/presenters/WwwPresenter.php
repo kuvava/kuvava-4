@@ -37,7 +37,7 @@ class WwwPresenter extends BasePresenter
 		$form->addText('telefon', 'Váš telefon:', 30, 30);
 		$form->addCheckbox('zavolame_vam', 'Smíme Vám bezplatně zavolat pro domluvu?')
 			->setDefaultValue(FALSE);
-		$form->addTextArea('text', 'Text*:', 50, 20)
+		$form->addTextArea('text', 'Text*:', 50, 15)
 			->setAttribute('maxlength', '2000')
 			->addRule(Form::FILLED, 'Vyplňte prosím políčko "text".');
 		$form->addCheckbox('kopie', 'Odeslat kopii i na Vámi vyplněný email.')
