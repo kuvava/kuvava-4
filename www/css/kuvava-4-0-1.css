@@ -27,6 +27,8 @@ clear:both;}
 display:inline-block;}
 body{
 min-width:555px;}
+textarea{
+width:90%;}
 #menu{
 width:25%;}
 #madd li{
