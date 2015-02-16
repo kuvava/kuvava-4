@@ -9,12 +9,12 @@
 <meta charset="utf-8">
 <meta http-equiv="Content-Language" content="cs">
 
-<title>{ifset #title}{include title|striptags} | {/ifset}kuvava.cz</title>
+<title>{ifset $stranka->title_tag}{$stranka->title_tag} | {/ifset}www.kuvava.cz</title>
 
 <link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/kuvava-4-0-1.css">
 <link rel="stylesheet" media="print" href="{$basePath}/css/print.css">
 <link rel="shortcut icon" href="{$basePath}/favicon4.ico">
-<meta name="description" content="DOPLNIT">
+<meta name="description" content="{ifset $stranka->description}{$stranka->description}{/ifset}">
 <meta property="og:title" content="DOPLNIT">
 {if $clanek}<meta property="og:type" content="article">{/if}
 <meta property="og:image" content="http://www.kuvava.cz/images/loga/kuvava-logo-4-xl.png">

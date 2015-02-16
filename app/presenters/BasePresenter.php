@@ -23,6 +23,11 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 		parent::startup();
 		\AntispamControl::register();
 	}
+	
+	public function beforeRender()
+	{
+		$this->template->stranka = $this->database->table('stranka')->where('presenter = ?', $this->name)->where('view = ?', $this->view)->limit(1)->fetch();
+	}
 
 	protected function setFormRenderer(Nette\Application\UI\Form $form)
 	{
