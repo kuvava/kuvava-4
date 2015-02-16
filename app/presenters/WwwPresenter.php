@@ -11,7 +11,7 @@ use Nette,
 /**
  * Homepage presenter.
  */
-class HomepagePresenter extends BasePresenter
+class WwwPresenter extends BasePresenter
 {
 
 	/** @var Nette\Mail\IMailer */

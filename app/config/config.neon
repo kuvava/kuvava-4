@@ -19,8 +19,11 @@ nette:
 
 	session:
 		expiration: 14 days
+		cookiePath: "/"
+		cookieDomain: ".%myDomain%"		#%myDomain% configured in config.local.neon
 
 	debugger:
+		email: urbanovi@kuvava.cz
 		bar:
 			- JanDrabek\MailPanel\MailPanel
 
