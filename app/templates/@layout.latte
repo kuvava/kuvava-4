@@ -72,8 +72,8 @@
 	{if $diskuze}<div id="add3" class="add jshidden">
 		<h2>Diskuze k tomuto tématu<br>(účastní se i autor této stránky)</h2>
 		<dl n:inner-foreach="$stranka->related('koment_tematic')->order('id') as $row">
-			<dt>{$iterator->counter}: {$row->prezdivka} ({$row->web}) ({$row->pohlavi}: {$row->vek}&nbsp;let)<br>
-				{$row->dv|date:'%d.&nbsp;%m.&nbsp;%Y %H:%M'|noescape}</dt>
+			<dt>{$row->dv|date:'%d.&nbsp;%m.&nbsp;%Y %H:%M'|noescape}<br><strong>{$iterator->counter}&diams; {$row->prezdivka !== '' ? $row->prezdivka : 'Anonym'}</strong> &diams; {$row->web} &diams;<small>{if $row->pohlavi !== 'h'} {$row->pohlavi === 'm' ? 'muž' : 'žena'}{/if}{if $row->pohlavi !== 'h' && $row->vek != -1},{/if}{if $row->vek != -1} {$row->vek}&nbsp;let{/if}</small>
+			</dt>
 			<dd>{$row->text}</dd>
 			<hr>
 		</dl>
