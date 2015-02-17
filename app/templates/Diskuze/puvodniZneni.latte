@@ -1,0 +1,24 @@
+{var $diskuze = 1}
+{var $sdileni = 1}
+{var $clanek = 0}
+{var $m2C3 = act}
+{block content}
+<h1>Původní znění komentáře číslo {$komentar->id}</h1>
+<dl>
+<dt>Datum a čas vložení:</dt><dd><strong>{$komentar->dv|date:'%d.&nbsp;%m.&nbsp;%Y %H:%M'|noescape}</strong></dd>
+<dt>Jméno / přezdívka:</dt><dd><strong>{$komentar->prezdivka}</strong></dd>
+<dt>Webové stránky:</dt><dd><strong>{$komentar->web}</strong></dd>
+<dt>Pohlaví:</dt><dd><strong>{if $komentar->pohlavi === 'm'}muž{elseif $komentar->pohlavi === 'f'}žena{else}neuvedeno{/if}</strong></dd>
+<dt>Věkové rozmezí:</dt><dd><strong>{if $komentar->vek == -1}neuvedeno{else}{$komentar->vek} let{/if}</strong></dd>
+</dl>
+<h2>{if $komentar->smazano == 1}Vysvětlení správce, proč bylo smazáno{elseif $komentar->upraveno == 1}Poznámka redakce k úpravám{else}Tento příspěvek nebyl upraven<br>(i v diskuzi se vyskytuje v původním znění){/if}</h2>
+<p>{$komentar->redakcni_poznamka|escape|nl2br|noescape}</p>
+<h2>Citace původního znění</h2>
+{$komentar->puvodni_zneni|escape|nl2br|noescape}
+{if $komentar->upraveno == 1}<h2>Citace upraveného znění</h2>
+{$komentar->text|escape|nl2br|noescape}{/if}
+{/block}
+{block kamDal}
+<p><a href="/">Velmi zajímavý článek k věci</a></p>
+<p><a href="/">Související služba s tematickým popiskem</a></p>
+<p><a href="/">Další související služba</a></p>

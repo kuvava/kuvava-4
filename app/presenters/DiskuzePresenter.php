@@ -14,5 +14,13 @@ use Nette,
 class DiskuzePresenter extends BasePresenter
 {
 
+	public function actionPuvodniZneni()
+	{
+		$this->template->komentar = $this->database->table('koment_tematic')->get($this->params['number2']);
+		if (!$this->template->komentar){
+			$this->shootError();
+		}
+		$this->template->robots = 'noindex';
+	}
 
 }

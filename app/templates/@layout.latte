@@ -72,9 +72,9 @@
 	{if $diskuze}<div id="add3" class="add{if $params['diskuze'] !== 'ano'} jshidden{/if}">
 		<h2>Diskuze k tomuto tématu<br>(účastní se i autor této stránky)</h2>
 		<dl n:inner-foreach="$stranka->related('koment_tematic')->order('id') as $row">
-			<dt id="d{$iterator->counter}">{$row->dv|date:'%d.&nbsp;%m.&nbsp;%Y %H:%M'|noescape} <small>(<a n:href="//this#d$iterator->counter, diskuze => ano" class="al">získat odkaz</a>) {if ($row->upraveno == 1) || ($row->smazano == 1)}({if $row->upraveno == 1}redakčně&nbsp;upraveno: {/if}{if $row->smazano == 1}smazáno&nbsp;správcem: {/if}<a n:href="Diskuze:puvodniZneni, number2 => $row->id, diskuze => ne">původní znění</a>){/if}</small><br><strong>{$iterator->counter}</strong>&diams; {if $row->smazano != 1}<strong>{$row->prezdivka !== '' ? $row->prezdivka : 'Anonym'}</strong> &diams; <small>{$row->web} &diams;{if $row->pohlavi !== 'h'} {$row->pohlavi === 'm' ? 'muž' : 'žena'}{/if}{if $row->pohlavi !== 'h' && $row->vek != -1},{/if}{if $row->vek != -1} {$row->vek}&nbsp;let{/if}</small>
+			<dt id="d{$iterator->counter}">{$row->dv|date:'%d.&nbsp;%m.&nbsp;%Y %H:%M'|noescape} <small>(<a n:href="//this#d$iterator->counter, diskuze => ano" class="al">získat odkaz</a>) {if ($row->upraveno == 1) || ($row->smazano == 1)}({if $row->upraveno == 1}redakčně&nbsp;upraveno: {/if}{if $row->smazano == 1}smazáno&nbsp;správcem: {/if}<a n:href="Diskuze:puvodniZneni, number2 => $row->id, diskuze => ne">původní znění</a>){/if}</small><br><strong>{$iterator->counter}</strong>&diams; {if $row->smazano != 1}<strong>{$row->prezdivka !== '' ? $row->prezdivka : 'Anonym'}</strong> &diams; <small>{$row->web}</small> &diams; <small>{if $row->pohlavi !== 'h'}{$row->pohlavi === 'm' ? 'muž' : 'žena'}{/if}{if $row->pohlavi !== 'h' && $row->vek != -1},{/if}{if $row->vek != -1} {$row->vek}&nbsp;let{/if}</small>
 			{/if}</dt>
-			<dd>{if $row->smazano != 1}{$row->text}{/if}</dd>
+			<dd>{if $row->smazano != 1}{$row->text|escape|nl2br|noescape}{/if}</dd>
 			<hr>
 		</dl>
 		<h3>Vložit komentář</h3>
