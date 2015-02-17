@@ -19,6 +19,8 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 	{
 		$this->database = $database;
 	}
+	/** @persistent */
+	public $diskuze = 'ne';
 	
 	protected $params;
 	
@@ -112,6 +114,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 			'email' => $values->email,
 			'novinky' => $novinky,
 			'text' => $values->text,
+			'puvodni_zneni' => $values->text,
 			'pohlavi' => $pohlavi,
 			'vek' => $vek,
 			'dv' => $now,

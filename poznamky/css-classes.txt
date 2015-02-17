@@ -1,4 +1,5 @@
 act		active (link in menu, ...)
+al		alert link (pro získání přímého odkazu například na komentáře)
 but		looks like a button
 c		clearing of floating
 des		description (in forms)

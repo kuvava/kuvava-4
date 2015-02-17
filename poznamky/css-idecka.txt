@@ -1,6 +1,7 @@
 #add		druhá část v rámci hlavní obsahové části
 #add1		první volba z menu pro část add
 #all		podekvivalent <body>
+#d1,...,d80	trvalé odkazy na iterace diskuzního vlákna (= konkrétní komentáře)
 #foot		patička
 #jst1		javascript-test-1 (neovlivňovaná výška #menu)
 #jst2		javascript-test-2 (neovlivňovaná výška #text)

@@ -59,7 +59,7 @@
 <div id="text"><div id="jst2">
 {include content}
 	<menu id="madd">
-	<li>{if $sdileni}<a href="#add1"><div id="madd1">Sdílet</div></a>{/if}</li><li>{ifset #kamDal}<a href="#add2"><div id="madd2">Kam dál?</div></a>{/ifset}</li><li>{if $diskuze}<a href="#add3"><div id="madd3">Diskuze</div></a>{/if}</li>
+	<li>{if $sdileni}<a href="#add1"><div id="madd1">Sdílet</div></a>{/if}</li><li>{ifset #kamDal}<a href="#add2"><div id="madd2">Kam dál?</div></a>{/ifset}</li><li>{if $diskuze}<a href="#add3"><div id="madd3" {if $params['diskuze'] === 'ano'}class="act"{/if}>Diskuze</div></a>{/if}</li>
 	</menu>
 	{if $sdileni}<div id="add1" class="add jshidden">
 	<h2>Líbí se Vám tento příspěvek?<br>Sdílejte jej prosím:</h2>
@@ -69,12 +69,12 @@
 	<h2>Dále Vás může zajímat:</h2>
 	{include kamDal}
 	</div>{/ifset}
-	{if $diskuze}<div id="add3" class="add jshidden">
+	{if $diskuze}<div id="add3" class="add{if $params['diskuze'] !== 'ano'} jshidden{/if}">
 		<h2>Diskuze k tomuto tématu<br>(účastní se i autor této stránky)</h2>
 		<dl n:inner-foreach="$stranka->related('koment_tematic')->order('id') as $row">
-			<dt>{$row->dv|date:'%d.&nbsp;%m.&nbsp;%Y %H:%M'|noescape}<br><strong>{$iterator->counter}&diams; {$row->prezdivka !== '' ? $row->prezdivka : 'Anonym'}</strong> &diams; {$row->web} &diams;<small>{if $row->pohlavi !== 'h'} {$row->pohlavi === 'm' ? 'muž' : 'žena'}{/if}{if $row->pohlavi !== 'h' && $row->vek != -1},{/if}{if $row->vek != -1} {$row->vek}&nbsp;let{/if}</small>
-			</dt>
-			<dd>{$row->text}</dd>
+			<dt id="d{$iterator->counter}">{$row->dv|date:'%d.&nbsp;%m.&nbsp;%Y %H:%M'|noescape} <small>(<a n:href="//this#d$iterator->counter, diskuze => ano" class="al">získat odkaz</a>) {if ($row->upraveno == 1) || ($row->smazano == 1)}({if $row->upraveno == 1}redakčně&nbsp;upraveno: {/if}{if $row->smazano == 1}smazáno&nbsp;správcem: {/if}<a n:href="Diskuze:puvodniZneni, number2 => $row->id, diskuze => ne">původní znění</a>){/if}</small><br><strong>{$iterator->counter}</strong>&diams; {if $row->smazano != 1}<strong>{$row->prezdivka !== '' ? $row->prezdivka : 'Anonym'}</strong> &diams; <small>{$row->web} &diams;{if $row->pohlavi !== 'h'} {$row->pohlavi === 'm' ? 'muž' : 'žena'}{/if}{if $row->pohlavi !== 'h' && $row->vek != -1},{/if}{if $row->vek != -1} {$row->vek}&nbsp;let{/if}</small>
+			{/if}</dt>
+			<dd>{if $row->smazano != 1}{$row->text}{/if}</dd>
 			<hr>
 		</dl>
 		<h3>Vložit komentář</h3>
