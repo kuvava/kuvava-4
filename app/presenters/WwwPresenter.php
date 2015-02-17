@@ -71,7 +71,6 @@ class WwwPresenter extends BasePresenter
 			'text' => $values->text,
 			'kopie' => $kopie,
 			'dv' => $now,
-			'ov' => $now,
 			'ip' => $ip
 			);
 			

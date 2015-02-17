@@ -71,6 +71,12 @@
 	</div>{/ifset}
 	{if $diskuze}<div id="add3" class="add jshidden">
 		<h2>Diskuze k tomuto tématu<br>(účastní se i autor této stránky)</h2>
+		<dl n:inner-foreach="$stranka->related('koment_tematic')->order('id') as $row">
+			<dt>{$iterator->counter}: {$row->prezdivka} ({$row->web}) ({$row->pohlavi}: {$row->vek}&nbsp;let)<br>
+				{$row->dv|date:'%d.&nbsp;%m.&nbsp;%Y %H:%M'|noescape}</dt>
+			<dd>{$row->text}</dd>
+			<hr>
+		</dl>
 		<h3>Vložit komentář</h3>
 		{control vlozitKomentForm}
 	</div>{/if}
