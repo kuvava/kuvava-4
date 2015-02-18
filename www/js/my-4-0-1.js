@@ -27,4 +27,6 @@ $(document).ready(function(){
 	$('a.al').click(function(){
 		alert("Přímý odkaz na daný komentář vypadá takto:\r\n" + $(this).attr('href') + "\r\nPo odkliknutí tohoto upozornění na něj přejdete. Odkaz tedy budete vidět v adresním řádku prohlížeče a budete jej moci odtamtud zkopírovat, když jej tam označíte a stisknete kombinaci kláves CTRL + c a potom jej můžete kamkoliv vložit kombinací kláves CTRL + v");
 	});
+	
+	$('textarea').autosize({callback: function(){ah1();}});
 });
