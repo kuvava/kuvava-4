@@ -5,8 +5,8 @@ SET time_zone = '+00:00';
 SET foreign_key_checks = 0;
 SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
-DROP TABLE IF EXISTS `koment_tematic`;
-CREATE TABLE `koment_tematic` (
+DROP TABLE IF EXISTS `koment`;
+CREATE TABLE `koment` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `stranka_id` int(11) NOT NULL,
   `prezdivka` varchar(30) COLLATE utf8_czech_ci NOT NULL,
@@ -24,10 +24,10 @@ CREATE TABLE `koment_tematic` (
   `smazano` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `stranka_id` (`stranka_id`),
-  CONSTRAINT `koment_tematic_ibfk_1` FOREIGN KEY (`stranka_id`) REFERENCES `stranka` (`id`)
+  CONSTRAINT `koment_ibfk_1` FOREIGN KEY (`stranka_id`) REFERENCES `stranka` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
-INSERT INTO `koment_tematic` (`id`, `stranka_id`, `prezdivka`, `web`, `email`, `novinky`, `text`, `puvodni_zneni`, `redakcni_poznamka`, `pohlavi`, `vek`, `dv`, `ip`, `upraveno`, `smazano`) VALUES
+INSERT INTO `koment` (`id`, `stranka_id`, `prezdivka`, `web`, `email`, `novinky`, `text`, `puvodni_zneni`, `redakcni_poznamka`, `pohlavi`, `vek`, `dv`, `ip`, `upraveno`, `smazano`) VALUES
 (1,	1,	'Micina',	'nemám',	'neco@neco.cz',	'ne',	'No teda, není ten Váš web nějak příliš strohý pro oko?',	'Ty pičo, není ten Váš web nějak příliš strohý pro oko?',	'Původně sprosté zvolání jsme nahradili zvoláním citovým - avšak jemnějším.',	'f',	'25 až 30',	'2015-02-17 02:18:29',	UNHEX('7F000001'),	1,	0),
 (2,	1,	'Tomáš Urban',	'www.kuvava.cz',	'urbanovi@kuvava.cz',	'ano',	'Udělali jsme jej pro začátek maximálně jednoduše. Věříme, že tím vynikne především textový obsah. Do budoucna budeme graficky, funkčně i obsahově obohacovat dle spontánních zkušeností a vzájemné inspirace s čtenáři... :-)',	'Udělali jsme jej pro začátek maximálně jednoduše. Věříme, že tím vynikne především textový obsah. Do budoucna budeme graficky, funkčně i obsahově obohacovat dle spontánních zkušeností a vzájemné inspirace s čtenáři... :-)',	NULL,	'm',	'30 až 35',	'2015-02-17 02:21:08',	UNHEX('7F000001'),	0,	0),
 (3,	1,	'hlasatel pravé víry',	'www.prozrete.com',	'pan@xy.cz',	'ano',	'Všichni jste pomocníci ďábla. Přijměte Ježíše do svého srdce a proste za odpuštění. Měli byste se kát... Jinak skončíte v pekle a budete zažívat věčná muka! Tak je psáno v Písmu Svatém...',	'Všichni jste pomocníci ďábla. Přijměte Ježíše do svého srdce a proste za odpuštění. Měli byste se kát... Jinak skončíte v pekle a budete zažívat věčná muka! Tak je psáno v Písmu Svatém...',	'Ctíme osobní víru uživatele, který vložil tento komentář. Přijde nám však, že tento příspěvek se nedrží daného tématu a vlákna a u budoucích čtenářů by spíše rušil porozumění u probíhající diskuze.',	'h',	'80 nebo více',	'2015-02-17 03:39:00',	UNHEX('7F000001'),	0,	1),

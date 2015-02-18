@@ -46,7 +46,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 	
 	protected function getStranka()
 	{
-		return $this->database->table('stranka')->where('presenter = ?', $this->name)->where('url1 = ?', $this->params['url1'])->where('url2 = ?', $this->params['url2'])->where('number1 = ?', $this->params['number1'])->limit(1)->fetch();
+		return $this->database->table('stranka')->where('presenter = ?', $this->name)->where('view = ?', $this->view)->where('url1 = ?', $this->params['url1'])->where('url2 = ?', $this->params['url2'])->where('number1 = ?', $this->params['number1'])->limit(1)->fetch();
 	}
 
 	protected function setFormRenderer(Nette\Application\UI\Form $form)
@@ -93,6 +93,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 					->setHtml('<small>(Nesouvisející dotazy pokládejte prosím v našem diskuzním fóru.)<br>(Můžeme si tykat.)<br>(Text nelze formátovat. Odkazy převedeme ručně na klikatelné - zpravidla do 5 dnů.)<br>(Znění dle svého svědomí upravujeme. S autorem o tom komunikujeme emailem. Jde nám o výpovědní hodnotu i pro budoucí čtenáře webu. U pozměněných komentářů je vždy proklik i na původní podobu.)<br>(Údaje s * jsou povinné.)</small>')
 					);
 		$form->addHidden('stranka_id',isset($this->template->stranka) ? $this->template->stranka : $this->getStranka()->id);
+		$form->addHidden('stranka_number2',$this->params['number2']);
 		$this->setFormRenderer($form);
 		
 		$form->onSuccess[] = array($this, 'vlozitKomentFormSubmitted');
@@ -119,10 +120,11 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 			'vek' => $vek,
 			'dv' => $now,
 			'ip' => $ip,
-			'stranka_id' => $values->stranka_id
+			'stranka_id' => $values->stranka_id,
+			'stranka_number2' => $values->stranka_number2
 			);
 			
-		$this->database->table('koment_tematic')->insert($data);
+		$this->database->table('koment')->insert($data);
 
 		$this->flashMessage('Váš komentář byl úspěšně vložen do tematické diskuze k této stránce.');
 		$this->redirect('this');

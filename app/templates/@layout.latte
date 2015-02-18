@@ -10,14 +10,14 @@
 <meta http-equiv="Content-Language" content="cs">
 <meta name="robots" content="{$robots}" n:ifset="$robots">
 
-<title>{ifset $stranka->title_tag}{$stranka->title_tag} | {/ifset}www.kuvava.cz</title>
+<title>{ifset $stranka->title_tag}{$stranka->title_tag}{else}Web o lidech, pohodě a léčitelství{/ifset} | www.kuvava.cz</title>
 
 <link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/kuvava-4-0-1.css">
 <link rel="stylesheet" media="print" href="{$basePath}/css/print.css">
 <link rel="shortcut icon" href="{$basePath}/favicon4.ico">
 <meta name="description" content="{ifset $stranka->description}{$stranka->description}{/ifset}">
-<meta property="og:title" content="DOPLNIT">
-{if $clanek}<meta property="og:type" content="article">{/if}
+<meta property="og:title" content="{ifset $stranka->title_facebook}{$stranka->title_facebook}{else}Www.kuvava.cz = web o lidech, pohodě a léčitelství{/ifset}">
+{ifset $stranka->clanek}{if $stranka->clanek == 1}<meta property="og:type" content="article">{/if}{/ifset}
 <meta property="og:image" content="http://www.kuvava.cz/images/loga/kuvava-logo-4-xl.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1972">
@@ -57,6 +57,8 @@
 </div></div>
 
 <div id="text"><div id="jst2">
+<h1 n:ifset="$stranka->h1">{$stranka->h1|noescape}</h1>
+{ifset $stranka->content}{$stranka->content|noescape}{/ifset}
 {include content}
 	<menu id="madd">
 	<li>{if $sdileni}<a href="#add1"><div id="madd1">Sdílet</div></a>{/if}</li><li>{ifset #kamDal}<a href="#add2"><div id="madd2">Kam dál?</div></a>{/ifset}</li><li>{if $diskuze}<a href="#add3"><div id="madd3" {if $params['diskuze'] === 'ano'}class="act"{/if}>Diskuze</div></a>{/if}</li>
@@ -71,7 +73,7 @@
 	</div>{/ifset}
 	{if $diskuze}<div id="add3" class="add{if $params['diskuze'] !== 'ano'} jshidden{/if}">
 		<h2>Diskuze k tomuto tématu<br>(účastní se i autor této stránky)</h2>
-		<dl n:inner-foreach="$stranka->related('koment_tematic')->order('id') as $row">
+		<dl n:inner-foreach="$stranka->related('koment')->order('id') as $row">
 			<dt id="d{$iterator->counter}">{$row->dv|date:'%d.&nbsp;%m.&nbsp;%Y %H:%M'|noescape} <small>(<a n:href="//this#d$iterator->counter, diskuze => ano" class="al">získat odkaz</a>) {if ($row->upraveno == 1) || ($row->smazano == 1)}({if $row->upraveno == 1}redakčně&nbsp;upraveno: {/if}{if $row->smazano == 1}smazáno&nbsp;správcem: {/if}<a n:href="Diskuze:puvodniZneni, number2 => $row->id, diskuze => ne">původní znění</a>){/if}</small><br><strong>{$iterator->counter}</strong>&diams; {if $row->smazano != 1}<strong>{$row->prezdivka !== '' ? $row->prezdivka : 'Anonym'}</strong> &diams; <small>{$row->web}</small> &diams; <small>{if $row->pohlavi !== 'h'}{$row->pohlavi === 'm' ? 'muž' : 'žena'}{/if}{if $row->pohlavi !== 'h' && $row->vek != -1},{/if}{if $row->vek != -1} {$row->vek}&nbsp;let{/if}</small>
 			{/if}</dt>
 			<dd>{if $row->smazano != 1}{$row->text|escape|nl2br|noescape}{/if}</dd>
