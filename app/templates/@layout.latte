@@ -16,7 +16,7 @@
 <link rel="stylesheet" media="print" href="{$basePath}/css/print.css">
 <link rel="shortcut icon" href="{$basePath}/favicon4.ico">
 <meta name="description" content="{ifset $stranka->description}{$stranka->description}{/ifset}">
-<meta property="og:title" content="{ifset $stranka->title_facebook}{$stranka->title_facebook}{else}Www.kuvava.cz = web o lidech, pohodě a léčitelství{/ifset}">
+<meta property="og:title" content="{block titleFacebook}{ifset $stranka->title_facebook}{$stranka->title_facebook}{else}www.kuvava.cz = web o lidech, pohodě a léčitelství{/ifset}{/block}">
 {ifset $stranka->clanek}{if $stranka->clanek == 1}<meta property="og:type" content="article">{/if}{/ifset}
 <meta property="og:image" content="http://www.kuvava.cz/images/loga/kuvava-logo-4-xl.png">
 <meta property="og:image:type" content="image/png">
@@ -61,12 +61,12 @@
 {ifset $stranka->content}{$stranka->content|noescape}{/ifset}
 {include content}
 	<menu id="madd">
-	<li>{if $sdileni}<a href="#add1"><div id="madd1">Sdílet</div></a>{/if}</li><li>{ifset #kamDal}<a href="#add2"><div id="madd2">Kam dál?</div></a>{/ifset}</li><li>{if $diskuze}<a href="#add3"><div id="madd3" {if $params['diskuze'] === 'ano'}class="act"{/if}>Diskuze</div></a>{/if}</li>
+	<li>{ifset $stranka->sdilet}{if $stranka->sdilet > 0}<a href="#add1"><div id="madd1">Sdílet</div></a>{/if}{/ifset}</li><li>{ifset #kamDal}<a href="#add2"><div id="madd2">Kam dál?</div></a>{/ifset}</li><li>{if $diskuze}<a href="#add3"><div id="madd3" {if $params['diskuze'] === 'ano'}class="act"{/if}>Diskuze</div></a>{/if}</li>
 	</menu>
-	{if $sdileni}<div id="add1" class="add jshidden">
+	{ifset $stranka->sdilet}{if $stranka->sdilet > 0}<div id="add1" class="add jshidden">
 	<h2>Líbí se Vám tento příspěvek?<br>Sdílejte jej prosím:</h2>
-	<p><a href="http://www.facebook.com/sharer.php?u=<?php echo urlencode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']); ?>" target="_blank" title="sdílejte tento příspěvek na facebooku"><img src="/images/ikonky/facebook-sdileni.png" alt="ikonka facebooku" height="32" width="32" border="0"></a>&nbsp;&nbsp;<a href="https://plus.google.com/share?url=<?php echo urlencode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']); ?>" target="_blank" title="sdílejte tento příspěvek na google plus"><img src="/images/ikonky/gplus-sdileni.png" alt="ikonka google plus" height="32" width="32" border="0"></a>&nbsp;&nbsp;<a href="http://twitter.com/share?url=<?php echo urlencode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']); ?>&text=<?php echo urlencode('DOPLNIT'); ?>" target="_blank" title="sdílejte tento příspěvek na twitteru"><img src="/images/ikonky/twitter-sdileni.png" alt="ikonka twitteru" height="32" width="32" border="0"></a></p>
-	</div>{/if}
+	<p><a href="http://www.facebook.com/sharer.php?u={block thisLinkInUrl}{block|url}{link //this}{/block}{/block}" target="_blank" title="sdílejte tento příspěvek na facebooku"><img src="/images/ikonky/facebook-sdileni.png" alt="ikonka facebooku" height="32" width="32" border="0"></a>&nbsp;&nbsp;<a href="https://plus.google.com/share?url={include thisLinkInUrl}" target="_blank" title="sdílejte tento příspěvek na google plus"><img src="/images/ikonky/gplus-sdileni.png" alt="ikonka google plus" height="32" width="32" border="0"></a>&nbsp;&nbsp;<a href="http://twitter.com/share?url={include thisLinkInUrl}&text={include titleFacebook|url}" target="_blank" title="sdílejte tento příspěvek na twitteru"><img src="/images/ikonky/twitter-sdileni.png" alt="ikonka twitteru" height="32" width="32" border="0"></a></p>
+	</div>{/if}{/ifset}
 	{ifset #kamDal}<div id="add2" class="add jshidden">
 	<h2>Dále Vás může zajímat:</h2>
 	{include kamDal}

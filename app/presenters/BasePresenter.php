@@ -19,6 +19,20 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 	{
 		$this->database = $database;
 	}
+	
+	/** @var Model\PrivateTexy */
+	protected $privateTexy;
+	public function injectPrivateTexy(Model\PrivateTexy $privateTexy)
+	{
+		$this->privateTexy = $privateTexy;
+	}
+	/** @var Model\PublicTexy */
+	protected $publicTexy;
+	public function injectPublicTexy(Model\PublicTexy $publicTexy)
+	{
+		$this->publicTexy = $publicTexy;
+	}
+	
 	/** @persistent */
 	public $diskuze = 'ne';
 	

@@ -32,3 +32,5 @@ services:
 	- App\Model\UserManager
 	router: App\RouterFactory::createRouter
 	nette.mailer: JanDrabek\MailPanel\SessionMailer
+	- App\Model\PublicTexy
+	- App\Model\PrivateTexy
